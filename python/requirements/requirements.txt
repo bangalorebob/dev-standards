@@ -1,0 +1,6 @@
+# Core dependencies for Wordle Solver
+rich>=14.0.0
+pyinstaller>=6.0.0
+
+# Development dependencies (optional)
+# Add these with: pip install -r requirements-dev.txt

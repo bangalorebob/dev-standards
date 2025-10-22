@@ -1,0 +1,44 @@
+[project]
+name = "wordle"
+version = "0.2.0"
+description = "A modular, extensible Wordle solver."
+authors = [
+    { name="Bob", email="bob.king@hey.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "rich>=14.0.0",
+]
+optional-dependencies.dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+optional-dependencies.build = [
+    "pyinstaller>=6.0.0",
+    "build>=0.10.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+wordle = ["/data/*.txt"]
+
+[tool.setuptools.packages.find]
+where = ["wordle"]
+
+[tool.pylint.'MESSAGES CONTROL']
+# (optional: control which messages are enabled/disabled)
+disable = ["fixme"]
+
+[tool.pylint.'FORMAT']
+notes-rgx = "TODO|FIXME"
+
+
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

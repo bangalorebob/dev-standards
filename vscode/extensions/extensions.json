@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.debugpy", 
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-python.pylint",
+        "ms-python.mypy-type-checker",
+        "ms-vscode.powershell",
+        "eamodio.gitlens",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.vscode-pull-request-github",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "gruntfuggly.todo-tree",
+        "formulahendry.auto-rename-tag",
+        "bradlc.vscode-tailwindcss"
+    ]
+}

@@ -1,0 +1,40 @@
+#!/bin/bash
+# Git Pre-Commit Hook: Prevent Direct Commits to Main Branch
+# 
+# This hook prevents accidental direct commits to the main branch,
+# enforcing a workflow where all changes go through feature branches
+# and pull requests.
+#
+# Installation:
+# 1. Copy this file to .git/hooks/pre-commit
+# 2. Make it executable: chmod +x .git/hooks/pre-commit
+#
+# To bypass (emergency use only):
+# git commit --no-verify -m "emergency commit message"
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branch" = "main" ]; then
+  echo "🚫 Direct commits to 'main' are not allowed."
+  echo ""
+  echo "Please create a feature branch instead:"
+  echo "  git checkout -b feature/your-feature-name"
+  echo "  git add ."
+  echo "  git commit -m 'your commit message'"
+  echo ""
+  echo "Or to bypass this check (emergency only):"
+  echo "  git commit --no-verify -m 'your commit message'"
+  echo ""
+  exit 1
+fi
+
+# Optional: Also protect other important branches
+# Uncomment and modify as needed for your workflow
+# if [ "$branch" = "develop" ] || [ "$branch" = "production" ]; then
+#   echo "🚫 Direct commits to '$branch' are not allowed."
+#   echo "Please use a feature branch instead."
+#   exit 1
+# fi
+
+# If we get here, commit is allowed
+exit 0

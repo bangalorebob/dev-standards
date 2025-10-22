@@ -1,0 +1,71 @@
+
+ {
+  "version": "0.8.0",   //updated as working version
+  "configurations": [
+    {
+    "name": "🔧 Debug: Run solver directly",
+    "type": "debugpy",
+    "request": "launch",
+    "program": "${workspaceFolder}/src/run.py",
+    "cwd": "${workspaceFolder}",
+    "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "env": {
+      "PYTHONPATH": "${workspaceFolder}/src",
+      "DEBUG_MODE": "true",
+      "WATCH_WORDS": "geese, slate, crane",
+      "LOG_LEVEL": "DEBUG"
+  },
+  "console": "integratedTerminal"
+},
+    {
+      "name": "✅Python: Run Solver as a module",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "wordle_solver.solver",
+      "cwd":"${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}",
+        "LOG_LEVEL": "DEBUG",
+        "DEBUG_MODE": "true"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false,  // Set to true to only debug your code
+    },
+    {
+      "name": "Python: Run Solver (user view)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "wordle_solver.solver",
+      "cwd": "${workspaceFolder}",
+      "env": {
+      "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}",
+      "DEBUG_MODE": "false",
+      "LOG_LEVEL": "INFO"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "🔁 Tool: Choose & Replay - new method",
+      "type": "debugpy",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/tests/tool.py",
+      "console": "integratedTerminal",
+      "env": {"LOG_LEVEL": "INFO",
+              "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"},
+    },
+    {
+      "name": "🔴 Tool: Capture New Session new method w/logging",
+      "type": "debugpy",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/tests/tool.py",
+      "args": ["--capture"],
+      "console": "integratedTerminal",
+      "env": {"LOG_LEVEL": "INFO",
+              "PYTHONPATH": "${workspaceFolder}/src;${env:PYTHONPATH}"}
+  }
+
+  ]
+}

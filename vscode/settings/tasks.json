@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks":[
+        {
+            "label": "Stash and Switch from Main",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                ".vscode/scripts/stash_and_switch.sh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+              },
+            "problemMatcher": [],
+            "group": {
+               "kind": "build",
+               "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Reset  feature/logging-refractor branch",
+            "type": "shell",
+            "command": "git switch feature/tag-injection && git branch -D feature/logging-refractor && git switch -c feature/logging-refractor-branch",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ]
+}
