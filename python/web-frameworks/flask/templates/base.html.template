@@ -1,0 +1,35 @@
+<!-- Flask Base Template
+     Based on successful flask-lab template inheritance -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ current_phase.name }}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{% block header_title %}🎯 {{ current_phase.name }}{% endblock %}</h1>
+        <nav>
+            {% block navigation %}
+            <a href="{{ url_for('home') }}">Home</a>
+            <!-- Add your navigation links here -->
+            {% endblock %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Page content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <hr>
+        <p><em>{{ phase_info }} | Development Standards Template</em></p>
+        {% endblock %}
+    </footer>
+</body>
+</html>

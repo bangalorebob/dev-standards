@@ -1,0 +1,21 @@
+<!-- Flask Home Template
+     Based on flask-lab context processor usage -->
+{% extends "base.html" %}
+
+{% block title %}Home - {{ current_phase.name }}{% endblock %}
+
+{% block header_title %}🎯 {{ current_phase.name }}{% endblock %}
+
+{% block content %}
+<h2>Welcome to {{ current_phase.name }}</h2>
+<p>This phase focuses on <strong>{{ current_phase.description }}</strong>.</p>
+
+<h3>{{ current_phase.name }} Features:</h3>
+<ul>
+    {% for feature in current_phase.features %}
+    <li>✅ {{ feature }}</li>
+    {% endfor %}
+</ul>
+
+<p><strong><a href="{{ url_for('health_check') }}">→ Health Check</a></strong></p>
+{% endblock %}
